@@ -78,7 +78,8 @@ st.markdown("""
 # ── 캐싱 ─────────────────────────────────────────────────────────────────
 @st.cache_data
 def load():
-    return load_data()
+    from generate_data import generate_data as gen_data
+    return gen_data()
 
 @st.cache_data
 def get_models(_df):
