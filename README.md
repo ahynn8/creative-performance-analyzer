@@ -21,14 +21,14 @@
 ### 탭 1 — 데이터 개요
 합성 데이터 기본 통계 및 소재 요소 분포 확인
 
-![데이터 개요](screenshots/tab1_overview.png)
+![데이터 개요](tab1_overview.png)
 
 ---
 
 ### 탭 2 — 소재 유형 비교
 포맷, 카피 유형, 플랫폼, CTA 위치별 CTR/CVR 평균 비교
 
-![소재 유형 비교](screenshots/tab2_comparison.png)
+![소재 유형 비교](tab2_comparison.png)
 
 ---
 
@@ -38,21 +38,21 @@ OLS 회귀분석으로 소재 요소별 CTR/CVR 영향도 정량화
 - 기준 카테고리: `format=Brand` / `copy_type=Benefit` / `cta_position=Early` / `platform=Feed`
 - p-value < 0.05 변수만 통계적으로 유의
 
-![영향도 분석](screenshots/tab3_regression.png)
+![영향도 분석](tab3_regression.png)
 
 ---
 
 ### 탭 4 — 개선 시나리오
 현재 소재 설정 입력 → 최적 조합 자동 제안 → CTR 개선 Waterfall 시각화
 
-![개선 시나리오](screenshots/tab4_scenario.png)
+![개선 시나리오](tab4_scenario.png)
 
 ---
 
 ### 탭 5 — KPI 연결
 개선된 CTR/CVR을 기반으로 ROAS 변화 예측
 
-![KPI 연결](screenshots/tab5_kpi.png)
+![KPI 연결](tab5_kpi.png)
 
 ---
 
