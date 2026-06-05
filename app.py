@@ -550,18 +550,18 @@ with tab5:
             for label, cur_val, imp_val in rows:
                 rows_html += f"""
                 <tr>
-                  <td style="padding:11px 14px;font-size:14px;font-weight:700;color:#1d4ed8;background:#dbeafe;text-align:center;border:{border}">{label}</td>
-                  <td style="padding:11px 14px;font-size:14px;font-weight:400;color:#1a1a1a;background:white;text-align:center;border:{border}">{cur_val}</td>
-                  <td style="padding:11px 14px;font-size:14px;font-weight:700;color:#1a1a1a;background:#eef3fd;text-align:center;border:{border}">{imp_val}</td>
+                  <td style="padding:11px 14px;font-size:14px;font-weight:700;color:#1a1a1a;background:#dbeafe;text-align:center;border:{border};width:33.33%">{label}</td>
+                  <td style="padding:11px 14px;font-size:14px;font-weight:400;color:#1a1a1a;background:white;text-align:center;border:{border};width:33.33%">{cur_val}</td>
+                  <td style="padding:11px 14px;font-size:14px;font-weight:700;color:#1d4ed8;background:#eef3fd;text-align:center;border:{border};width:33.33%">{imp_val}</td>
                 </tr>"""
             table_html = f"""
             <div style="border-radius:12px;overflow:hidden;margin-top:4px;border:{border}">
               <table style="width:100%;border-collapse:collapse">
                 <thead>
                   <tr>
-                    <th style="padding:13px 14px;font-size:13px;font-weight:700;color:white;background:#3D6FBC;text-align:center;border:{border}">항목</th>
-                    <th style="padding:13px 14px;font-size:13px;font-weight:700;color:white;background:#3D6FBC;text-align:center;border:{border}">현재</th>
-                    <th style="padding:13px 14px;font-size:13px;font-weight:700;color:#FFD700;background:#3D6FBC;text-align:center;border:{border}">개선 후 ▲</th>
+                    <th style="padding:13px 14px;font-size:13px;font-weight:700;color:white;background:#3D6FBC;text-align:center;border:{border};width:33.33%">항목</th>
+                    <th style="padding:13px 14px;font-size:13px;font-weight:700;color:white;background:#3D6FBC;text-align:center;border:{border};width:33.33%">현재</th>
+                    <th style="padding:13px 14px;font-size:13px;font-weight:700;color:white;background:#3D6FBC;text-align:center;border:{border};width:33.33%">개선 후</th>
                   </tr>
                 </thead>
                 <tbody>{rows_html}</tbody>
