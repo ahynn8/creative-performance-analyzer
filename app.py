@@ -535,16 +535,39 @@ with tab5:
 
         k_col, g_col = st.columns([1, 1])
         with k_col:
-            kpi_table = pd.DataFrame({
-                '항목'  : ['실제 CPM','노출수','클릭수','전환수','매출 (원)','CPA (원)','수익성'],
-                '현재'  : [f"{c['actual_cpm']:,.0f}", f"{c['impressions']:,}", f"{c['clicks']:,}",
-                           f"{c['conversions']:,}", f"{c['revenue']:,.0f}", f"{c['cpa']:,.0f}",
-                           '수익' if c['is_profitable'] else '손실'],
-                '개선 후': [f"{i['actual_cpm']:,.0f}", f"{i['impressions']:,}", f"{i['clicks']:,}",
-                            f"{i['conversions']:,}", f"{i['revenue']:,.0f}", f"{i['cpa']:,.0f}",
-                            '수익' if i['is_profitable'] else '손실'],
-            })
-            st.dataframe(kpi_table, use_container_width=True, hide_index=True)
+            border = '1px solid rgba(0,0,0,0.12)'
+            rows = [
+                ('실제 CPM (원)', f"{c['actual_cpm']:,.0f}", f"{i['actual_cpm']:,.0f}"),
+                ('노출수',        f"{c['impressions']:,}",   f"{i['impressions']:,}"),
+                ('클릭수',        f"{c['clicks']:,}",        f"{i['clicks']:,}"),
+                ('전환수',        f"{c['conversions']:,}",   f"{i['conversions']:,}"),
+                ('매출 (원)',     f"{c['revenue']:,.0f}",    f"{i['revenue']:,.0f}"),
+                ('CPA (원)',      f"{c['cpa']:,.0f}",        f"{i['cpa']:,.0f}"),
+                ('수익성',        '수익' if c['is_profitable'] else '손실',
+                                  '수익' if i['is_profitable'] else '손실'),
+            ]
+            rows_html = ""
+            for label, cur_val, imp_val in rows:
+                rows_html += f"""
+                <tr>
+                  <td style="padding:11px 14px;font-size:14px;font-weight:700;color:#1d4ed8;background:#dbeafe;text-align:center;border:{border}">{label}</td>
+                  <td style="padding:11px 14px;font-size:14px;font-weight:400;color:#1a1a1a;background:white;text-align:center;border:{border}">{cur_val}</td>
+                  <td style="padding:11px 14px;font-size:14px;font-weight:700;color:#1a1a1a;background:#eef3fd;text-align:center;border:{border}">{imp_val}</td>
+                </tr>"""
+            table_html = f"""
+            <div style="border-radius:12px;overflow:hidden;margin-top:4px;border:{border}">
+              <table style="width:100%;border-collapse:collapse">
+                <thead>
+                  <tr>
+                    <th style="padding:13px 14px;font-size:13px;font-weight:700;color:white;background:#3D6FBC;text-align:center;border:{border}">항목</th>
+                    <th style="padding:13px 14px;font-size:13px;font-weight:700;color:white;background:#3D6FBC;text-align:center;border:{border}">현재</th>
+                    <th style="padding:13px 14px;font-size:13px;font-weight:700;color:#FFD700;background:#3D6FBC;text-align:center;border:{border}">개선 후 ▲</th>
+                  </tr>
+                </thead>
+                <tbody>{rows_html}</tbody>
+              </table>
+            </div>"""
+            st.markdown(table_html, unsafe_allow_html=True)
 
         with g_col:
             fig = go.Figure(go.Bar(
